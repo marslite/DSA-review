@@ -56,9 +56,23 @@ max_size = 20;
 heap = [];
 for i in range(0,100):
     if len(heap) >= 20:
-        heapq.heappushpop(heap,i)
+
+        print("if ", i, ">=20", "then ->", heapq.heappushpop(heap,i))
     else:
-        heapq.heappush(heap, i)
+        print("Else heappush ", i,heapq.heappush(heap, i))
 
 print(len(heap));
 print(heap);
+
+#By using Max Heap we can multiply the values you're adding by -1
+#Thus the elements you heappop will be the 'largest' after you
+
+max_heap = []
+heapq.heappush(max_heap, Person("Alice", -16))
+heapq.heappush(max_heap, Person("Billy", -14))
+heapq.heappush(max_heap, Person("Sam", -12))
+print(heapq.heappop(max_heap));
+
+
+#Dequeue 
+
