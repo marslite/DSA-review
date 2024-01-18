@@ -183,3 +183,27 @@ print(name_to_age_map.get("Sam")); #14
 #Careful do NOT do that, this will be running on O(n) runtime. This will check ALL the dictionairies keys. Imagine if you had thousands of them
 eval = "Sam" in name_to_age_map.keys();
 print(eval);
+
+#Sets
+#Python set is most similiar to a Hashset. Objects added must be hashable. One can also perform basic set operations
+
+even_num_set = set();
+even_num_set.add(2);
+even_num_set.add(4);
+odd_num_set = set()
+odd_num_set.add(1);
+odd_num_set.add(3);
+
+3 in even_num_set; #False in O(1) time.
+2 in even_num_set; #True in O(1) time.
+
+#We can do set union as well in O(m+n) time
+union_num_set = even_num_set.union(odd_num_set);
+
+#We can also do set intersection as well in O(m+n) time.
+intersect_num_set = even_num_set.intersection(odd_num_set); # This will return an empty set
+
+#New set with elements in union_nums but not in even_num_set
+difference_set = union_num_set.difference(even_num_set) # {1,3}
+print(union_num_set);
+
