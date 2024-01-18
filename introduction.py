@@ -91,3 +91,52 @@ def get_enzyme(ln):
 
 line = "lacZ_1013aa_betagalactosidase_escherichiacoli";
 get_enzyme(line);
+
+#Strings are Immutable
+
+original_string = "hello";
+modified_string = original_string.upper();
+
+print(original_string);
+print(modified_string);
+
+#When using strings, we can join and split them to convert to and from lists
+sentence_with_dashes = "The-fox-jumped-over-the-moon";
+words = sentence_with_dashes.split('-');
+print(words);
+
+#The space_character will be the joining element between element of th elist into a string.
+space_character = " "
+sentence_with_spaces = space_character.join(words);
+print(sentence_with_spaces);
+
+#Sorting
+random_list = [5,1,3,4,2]
+
+# 'sorted' returns a new list
+sorted_list = sorted(random_list);
+print(sorted_list);
+reverse_list = sorted(random_list, reverse= True);
+print(reverse_list);
+
+random_list.sort();
+print(random_list);
+
+#One can also sort lists with a custom key using lambda
+class Person:
+    def __init__(self, name, age):
+        self.age = age
+        self.name = name
+
+    def __repr__(self):
+        return repr((self.name, self.age))
+
+bob = Person("Bob", 14)
+sam = Person("Sam", 12)
+ann = Person("Ann", 16)
+
+people = [bob,sam,ann];
+people.sort(key=lambda x: x.name)
+print(people, "Sorting by name")
+people.sort(key=lambda x:x.age)
+print(people, "Sorting by age");
