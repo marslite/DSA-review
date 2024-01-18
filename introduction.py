@@ -140,3 +140,46 @@ people.sort(key=lambda x: x.name)
 print(people, "Sorting by name")
 people.sort(key=lambda x:x.age)
 print(people, "Sorting by age");
+
+
+#Understanding Hashability in Python
+
+# What's Hashable? Anything immutable, including integers, floats, tuples, strings and frozenSets. 
+#                 They are hashable because they cannot be changed
+
+# What's not Hashable? List, dictionares and sets are examples of 'mutable' objects which are not hashable.
+
+
+#Dictionaries
+#Dictionaites in python is the most similiar to a hasmap with key-value pairs. 
+#The keys in a dictionary can be any data type so long as they are hashable
+
+name_to_age_map = {}
+name_to_age_map["Ann"] = 16;
+name_to_age_map["Bob"] = 12;
+name_to_age_map["Sam"] = 14;
+
+#.keys() returns a list of all the keys in the dict
+print(name_to_age_map.keys());
+
+#.values() returns a list of all values in the dictionary
+print(name_to_age_map.values());
+
+#.itmes() returns a list tuples with all key value pairs in the dict
+print(name_to_age_map.items());
+
+# We can also check if a key is in the Dic within O(1) time.
+print("Ryan" in name_to_age_map); #False
+print("Bob" in name_to_age_map); #True
+
+#We can also check value for a given key in O(1) time. It will return None if the item ('key') is not to be found.
+#Otherwise will return the related keyitem 
+print(name_to_age_map.get("Ryan")); #None
+print(name_to_age_map.get("Sam")); #14
+
+#Attemptin to access a key that does not exist will result in an error.
+# name_to_age_map["Ryan"];
+
+#Careful do NOT do that, this will be running on O(n) runtime. This will check ALL the dictionairies keys. Imagine if you had thousands of them
+eval = "Sam" in name_to_age_map.keys();
+print(eval);
