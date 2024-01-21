@@ -20,6 +20,14 @@ class Dog:
         return "{} bites {} times!".format(self.name, times)
 
 
+#Child class (inherits Dog class)
+class Beagle(Dog):
+    def run(self,speed):
+        return "{}, the Beagle, runs {}".format(self.name,speed)
+    
+
+
+
 class Cat:
     def __init__(self,name,age):
         self._name = name
@@ -60,6 +68,7 @@ print("is copy and lst share the same address in the memory aka same exact list 
 class PrivateMethod:
     def __init__(self):
         self.__secretKey = "MY_SOCIAL_SECURITY_NUMBER"
+        self._notSoSecret = "If you can see it, means it's not secret"
     
     def __privateMethod(self):
         return "SSN: " + self.__secretKey
@@ -68,15 +77,28 @@ class PrivateMethod:
         return self.__privateMethod();
 
 
+
+
+
 test = PrivateMethod();
 
 print(test.privateMethod()); ##This gets found by the compiler
-print(test.__privateMethod()); ##Meanwhile this instance method gets Obfuscated so succesfully hidden
+# print(test.__privateMethod()); ##Meanwhile this instance method gets Obfuscated so succesfully hidden
+
+bankATM = PrivateMethod();
+print(bankATM.privateMethod());
+print(bankATM._notSoSecret);
+
+doggy = Dog("Tim",2);
+print(doggy.description());
+doggy.age = 4;
+print(doggy.description())
 
 
 
 #Instantiating Dog object
 # doggo = Dog("Mikey", 6);
+
 
 # print(doggo.description());
 # print(doggo.speak("Woof Woof!"))
@@ -90,3 +112,6 @@ print(test.__privateMethod()); ##Meanwhile this instance method gets Obfuscated 
 # my_dog = Dog("Snoopy",8)
 # print(my_dog.name);
 # print(my_dog.age);
+snoopy = Beagle("Snoopy",20);
+print(snoopy.description());
+print(snoopy.run("Very fast"));
