@@ -53,6 +53,28 @@ print(copy);
 print("is lst and copy the (==) the same list?", copy == lst);
 print("is copy and lst share the same address in the memory aka same exact list pointing to each other, or different?", copy is lst);
 
+
+
+###Moving on, Private Methods
+
+class PrivateMethod:
+    def __init__(self):
+        self.__secretKey = "MY_SOCIAL_SECURITY_NUMBER"
+    
+    def __privateMethod(self):
+        return "SSN: " + self.__secretKey
+    
+    def privateMethod(self):
+        return self.__privateMethod();
+
+
+test = PrivateMethod();
+
+print(test.privateMethod()); ##This gets found by the compiler
+print(test.__privateMethod()); ##Meanwhile this instance method gets Obfuscated so succesfully hidden
+
+
+
 #Instantiating Dog object
 # doggo = Dog("Mikey", 6);
 
