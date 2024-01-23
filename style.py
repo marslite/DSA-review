@@ -52,6 +52,34 @@ student = CoachableStudent("Mattia",26)
 print(student.make_intro());
 
 
+i = 0;
+nums = [1,2,4,4]
+
+# while i < len(nums):
+#     print(key, "-", )
+#     key = 2 - nums[i]
+#     if key in nums:
+#         nums[key] += 3
+
+#     # nums[nums[i]] = i
+#     i +=1;
+
+# print(nums);
+
+def doSomething(nums):
+    for i,num in enumerate(nums):
+        print(i,num)
+    
+
+
+    
+
+print(doSomething(nums));
+
+
+# if key in nums:
+#     print()
+
 l1 = [10,10,10];
 
 # print(double_list(l1));
