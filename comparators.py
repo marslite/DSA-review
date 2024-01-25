@@ -51,13 +51,14 @@ sorted_persons =sorted(persons)
 
 print("Sorted by last name and first name :");
 for person in sorted_persons:
-    print(person)
+    print(repr(person))
 
 
 
+print(persons[0] > persons[1]);
 
-p1 = oldPerson("John",30)
-p2 = oldPerson("Jane",25)
+# p1 = oldPerson("John",30)
+# p2 = oldPerson("Jane",25)
 
-print(p1 <= p2); #False
-print(p2 <= p2); #True
+# print(p1 <= p2); #False
+# print(p2 <= p2); #True
