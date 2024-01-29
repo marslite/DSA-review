@@ -198,12 +198,15 @@ odd_num_set.add(3);
 2 in even_num_set; #True in O(1) time.
 
 #We can do set union as well in O(m+n) time
-union_num_set = even_num_set.union(odd_num_set);
+union_num_set = even_num_set.union(odd_num_set); #{1,2,3,4}
 
 #We can also do set intersection as well in O(m+n) time.
 intersect_num_set = even_num_set.intersection(odd_num_set); # This will return an empty set
 
 #New set with elements in union_nums but not in even_num_set
 difference_set = union_num_set.difference(even_num_set) # {1,3}
-print(union_num_set);
 
+
+#Heap PQ
+#To implement a priority queue in Python, use the heapq library. It will use an empty list
+# and will use that to construct a heap

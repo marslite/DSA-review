@@ -76,3 +76,7 @@ print(heapq.heappop(max_heap));
 
 #Dequeue 
 
+#As an extension to a typlical Python list we can also iport a 'Deque'
+#All pop and push operations take O(1) runtime. A Deque is a double-ended LinkedList 
+#Where you can pop and push from both the left and the right
+

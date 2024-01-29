@@ -55,7 +55,7 @@ for person in sorted_persons:
 
 
 
-print(persons[0] > persons[1]);
+# print(persons[0] > persons[1]);
 
 # p1 = oldPerson("John",30)
 # p2 = oldPerson("Jane",25)
