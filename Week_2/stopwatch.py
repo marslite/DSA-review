@@ -29,6 +29,6 @@ if __name__ == "__main__":
     #This should be running almost instantly
     print(stopwatch_1.elapsed_time(), squareroot_sum)
     stopwatch_2 = Stopwatch()
-    factorial_run_time_function(20)
-    print("Factorial function takes very long:", stopwatch_2.elapsed_time())
+    output = factorial_run_time_function(20)
+    print("Factorial function takes very long:", output,  stopwatch_2.elapsed_time())
     
