@@ -9,20 +9,27 @@ class LinkedList:
         self._size = 0
 
     def __str__(self):
-        out = ""
+        #O(N) Runtime
+        # O(N) Space
+        out = "" 
         cur = self.head.next
         while (cur is not None):
             out += str(cur.item) + "~"
             cur = cur.next
         return out
+    
 
     def insertFront(self, item):
+        #O(1) Runtime
+        #O(1) Space
         next = self.head.next
         self.head.next = Node(item)
         self.head.next.next = next 
         self._size += 1
 
     def insertLast(self, item):
+        #O(N) Runtime
+        #O(1) Space
         cur = self.head
         while(cur.next is not None):
             cur = cur.next
@@ -30,6 +37,9 @@ class LinkedList:
         self._size += 1
 
     def removeBeginning(self):
+        #O(1)Runtime 
+        #O(1) space
+
         assert(self.size() > 0)
         #H ->1 -> 2
         #Result after removing 
@@ -38,11 +48,16 @@ class LinkedList:
         self._size -= 1
 
     def size(self):
+        #O(1)Runtime 
+        #O(1) space
         return self._size
 
 
 if __name__ == '__main__':
     #test cases
+
+    testLink = LinkedList()
+    print(testLink.head.item)
 
     linkedList = LinkedList()
     for i in range(1,6):
