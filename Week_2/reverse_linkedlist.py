@@ -70,37 +70,41 @@ class LinkedList:
 if __name__ == '__main__':
     #test cases
 
-    testLink = LinkedList()
-    print(testLink.head.item)
+    # testLink = LinkedList()
+    # print(testLink.head.item)
 
-    linkedList = LinkedList()
-    for i in range(1,6):
-        linkedList.insertFront(i)
-    print(linkedList)
+    # linkedList = LinkedList()
+    # for i in range(1,6):
+    #     linkedList.insertFront(i)
+    # print(linkedList)
 
-    linkedList.removeBeginning()
-    linkedList.removeBeginning()
-    ##should print 3,4,5
-    print(linkedList)
+    # linkedList.removeBeginning()
+    # linkedList.removeBeginning()
+    # ##should print 3,4,5
+    # print(linkedList)
 
-    for i in range(6,11):
-        linkedList.insertLast(i)
+    # for i in range(6,11):
+    #     linkedList.insertLast(i)
     
-    print(linkedList)
-    #shoudl print 3,4,5,6,7,8,9,10
+    # print(linkedList)
+    # #shoudl print 3,4,5,6,7,8,9,10
 
-    lst = LinkedList()
-    for i in range(10):
-        lst.insertFront(i)
+    # lst = LinkedList()
+    # for i in range(10):
+    #     lst.insertFront(i)
         
-    print(lst)
+    # print(lst)
 
-    lst.reverseLinkedList()
-    print(lst)
-
-
- 
+    # lst.reverseLinkedList()
+    # print(lst)
 
 
+    linked = LinkedList()
+    print(linked)
+    linked.reverseLinkedList()
+    print(linked)
 
-
+    linked.insertFront(1)
+    print(linked)
+    linked.reverseLinkedList()
+    print(linked)
