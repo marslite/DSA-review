@@ -14,17 +14,21 @@ class Queue:
 
     #Adds an item to the queue
     def enqueue(self, item):
-        pass
+        self.tail.next = Node(item)
+        self.tail = self.tail.next
+        self._size += 1
+
     #Removes and returns the least recently added item
     def dequeue(self):
         pass
 
     #Returns a boolean indiciating whether the queue is emtpy or not
     def isEmpty(self):
-        pass
+        return self.size() == 0
+
     #Returns the numner of itmes in the queue
     def size(self):
-        pass
+        return self._size
 
     #Returns a list of items in the queue
     def items(self):
