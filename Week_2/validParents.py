@@ -1,7 +1,11 @@
 def validParens(s):
+    #Runtime Complexity O(N)
+    #Space Complexity  O(N) We're adding to our stack depending by N size, so O(N)
     parens = ['(',')','[',']','{', '}']
     stack = []
+    #O(N) Iterating N times 
     for c in s:
+        #Looking for index of x is O(1)
         idx = parens.index(c)
         if idx % 2 == 0:
             stack += c

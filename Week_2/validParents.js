@@ -13,23 +13,7 @@ var isValid = function(s) {
     stack = []
     var c = s.split('')
 
-    // c.forEach((item) =>{
-    //     var idx = pars.indexOf(item) 
-    //     if(idx % 2 == 0){
-    //         stack.push(item)
-    //     }else{
-    //         if(stack.length == 0){
-    //             return false
-    //         }else{
-    //             val = stack.pop()
-    //             if(val != pars[idx -1]){
-    //                 return false
-    //             }else{
-    //                 return true
-    //             }
-    //         }
-    //     }
-    // } )
+
 
     for(let i =0; i<s.length; i++){
         var idx = pars.indexOf(s[i]);

@@ -24,7 +24,7 @@ class Stack:
     def push(self,item):
         #add 5
         # 5 -> 4 -> 3 -> 2 ->1
-
+        #O(1) Time and space
         old_first_item = self.first_item
         self.first_item = Node(item)
         self.first_item.next = old_first_item
@@ -32,6 +32,7 @@ class Stack:
 
     #Removes and returns the most recently added item
     def pop(self):
+        #O(1) Time and space
         if self.isEmpty():
             return
         
