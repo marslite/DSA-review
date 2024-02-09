@@ -62,19 +62,29 @@ class Queue:
     
     
 if __name__ == '__main__':
-    queue = Queue()
-    print(queue.isEmpty())
-
-    for i in range(3):
-        queue.enqueue(i)
-
-    print(queue.items())
+    # queue = Queue()
     # print(queue.isEmpty())
-    print("Removing Nodes from the Queue")
-    for _ in range(4):
-        print(queue.dequeue())
 
-    for i in range(2):
-        queue.enqueue(i)
+    # for i in range(3):
+    #     queue.enqueue(i)
 
+    # print(queue.items())
+    # # print(queue.isEmpty())
+    # print("Removing Nodes from the Queue")
+    # for _ in range(4):
+    #     print(queue.dequeue())
+
+    # for i in range(2):
+    #     queue.enqueue(i)
+
+    # print(queue.items())
+
+    queue = Queue()
+    queue.enqueue(1)
+    queue.enqueue(2)
+    print(queue.dequeue())
+    queue.enqueue(3)
+    queue.enqueue(4)
+    print(queue.dequeue())
+    print(queue.dequeue())
     print(queue.items())
