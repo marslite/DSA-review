@@ -23,22 +23,6 @@ def factorial(n):
     return factorial(n-1)*n
 
 
-def fibMemo(n, dict,memo):
-    if n in memo:
-        return memo[n]
-
-    if n in dict:
-        dict[n] += 1
-    else:
-        dict[n] = 1
-
-    if(n==0 or n==1):
-        return 1
-
-    
-    current_n = fibMemo(n-1,dict,memo)+fibMemo(n-2,dict,memo)
-    memo[n] = current_n
-    return current_n
 
 
 def fib(n,dict):
@@ -52,7 +36,28 @@ def fib(n,dict):
     
     return fib(n-1,dict) + fib(n-2,dict)
 
+def fibMemo(n, dict,memo):
+    #Runtime Complexity O(N)
+    #Space Complexity O(N)
+    if n in memo:
+        return memo[n]
+
+    if n in dict:
+        dict[n] += 1
+    else:
+        dict[n] = 1
+
+    if(n==0 or n==1):
+        return 1
+
+    current_n = fibMemo(n-1,dict,memo)+fibMemo(n-2,dict,memo)
+    memo[n] = current_n
+    return current_n
+
+
 def fibBottomUp(n):
+    #Runtime Complexity O(N)
+    #Space Complexity O(N)
     dp = [0]*(n+1)
 
     dp[0] = dp[1] = 1
