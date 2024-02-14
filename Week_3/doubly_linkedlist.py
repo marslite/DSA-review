@@ -12,6 +12,8 @@ class ListNode:
 
 class Deque:
     #Initialize Deque
+    #RC: O(1)
+    #SC: O(1)
     def __init__(self):
         self.size = 0
         self.head = ListNode("head")
@@ -29,6 +31,9 @@ class Deque:
 
     #Inserts item to the front of the Deque
     def addFirst(self,item):
+        #RC: O(1)
+        #SC: O(1)
+
         #head <-> tail
         #head <-> 1 <-> tail
         #head <-> item <-> 1 <-> tail
@@ -46,6 +51,9 @@ class Deque:
 
     #Inserts item at the end of the Deuque
     def addLast(self,item):
+        #RC: O(1)
+        #SC: O(1)
+        
         #head <-> tail
         #head <-> 1 <-> tail
         #head <-> 1 <-> 2 <-> tail
@@ -64,6 +72,10 @@ class Deque:
 
     #Delete and return the key-value pair at the front of the Deque
     def removeFirst(self):
+        #RC: O(1)
+        #SC: O(1)
+        
+
         # head <-> 1 <-> 2 <-> tail
         #removeFirst()
         # head <-> 2 <-> tail
@@ -87,6 +99,10 @@ class Deque:
 
     #Delete and return the key-value at the end of the deque
     def removeLast(self):
+        #RC: O(1)
+        #SC: O(1)
+        
+
         # head <-> 1 <-> 2 <-> tail
         #removeLast()
         # head <-> 1 <-> tail
@@ -103,6 +119,9 @@ class Deque:
     #Return type: List
     # Construct a list holding all of the items in the deque from front to end and returns it
     def asList(self):
+        #RC: O(n)
+        #SC: O(n)
+
         lst = []
         current = self.head.next
         while (current.next):
