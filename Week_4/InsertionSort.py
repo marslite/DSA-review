@@ -1,7 +1,10 @@
 
 def insertionSort(arr):
     num_swaps = 0
+    #Timecomplexity: O(n)
     for i in range(1,len(arr)):
+        #Time complexity: O(n * (n +1))/2 = O(n^2)
+        #Runtime complexity for insertion sort is O(n^2)
         for j in range(i,0,-1):
             if(arr[j] < arr[j-1]):
                 num_swaps += 1
