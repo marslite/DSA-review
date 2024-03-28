@@ -12,6 +12,8 @@ class PrintBST:
         self.recursive_append(node.left,cur_height+1,lo,mid-1,output)
         self.recursive_append(node.right,cur_height+1,mid+1,hi,output)
 
+    
+
 
     def printTree(self, root):
         """
@@ -28,3 +30,5 @@ class PrintBST:
                 str_out += c
             str_out += "\n"
         return str_out
+    
+
