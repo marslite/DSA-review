@@ -72,6 +72,7 @@ if __name__ == '__main__':
     print(bst)
 
     # bst = BST()
+    #self.root =5
     # bst._insertRecursive(5)
     # bst._insertRecursive(3)
     # bst._insertRecursive(7)
