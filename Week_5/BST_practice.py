@@ -62,13 +62,13 @@ class BST:
 if __name__ == '__main__':
     #test cases here
     bst = BST()
-    bst.inserIterative(5)
-    bst.inserIterative(3)
-    bst.inserIterative(7)
+    bst.inserIterative(1)
     bst.inserIterative(2)
+    bst.inserIterative(3)
     bst.inserIterative(4)
-    bst.inserIterative(6)
-    bst.inserIterative(8)
+    bst.inserIterative(5)
+    # bst.inserIterative(6)
+    # bst.inserIterative(8)
     print(bst)
 
     # bst = BST()
