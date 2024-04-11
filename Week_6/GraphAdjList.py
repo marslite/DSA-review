@@ -27,4 +27,13 @@ for source,target in love_connections:
         # print("adj_list[source]", adj_list[source], " = target",target )
         adj_list[source] = [target]
 
-print(adj_list)
+# print(adj_list)
+
+for neighbor in adj_list["Lysander"]:
+    print(neighbor)
+
+
+for source,target in love_connections:
+    if source == "Lysander":
+        print(target)
+
