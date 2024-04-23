@@ -192,18 +192,30 @@ def find_valid_course_ordering_if_exists(prerequisites: list[list[int]], n: int)
     adj[pre].append(course)
     indegree[course] += 1
   
-  sources = [i for i in range(n) if indegree[i] == 0  ]
+  # sources = [i for i in range(n) if indegree[i] == 0  ]
+  sources = []
+  for i in range(n):
+    if indegree[i] == 0:
+      sources.append(i)
 
   sorted_order = []
   while sources:
-    vertex = sources.pop(0)
-    sorted_order.append(vertex)
-    for child in adj[vertex]:
-      indegree[child] -= 1
-      if indegree[child] == 0:
-        sources.append(child)
+    course = sources.pop(0)
+    sorted_order.append(course)
+    for dependent in adj[course]:
+      # Decreasing by -1 the depenency from the previous course when it turns to 0
+      indegree[dependent] -= 1
+      #If the course we have now reduced it's depenency or any course that has now 0 dependency 
+      #would be pushed onto the stack so it will be processed next. That's Khan's algo in a nutshell
+      if indegree[dependent] == 0:
+        sources.append(dependent)
   print("Result", sorted_order)
 
+  #Checking whether the ordering contains the same exact number of courses
+  #It's suppsoed to ordering/sorting them not reducing them!
+  #So if the number of courses is lesser than the original input array
+  #It could only means this graph was not DAG but instead was Cyclical 
+  #Khan's algo and Top Sort in general does not work on Cyclical graphs
   if len(sorted_order) == n:
     return sorted_order
   else:
