@@ -1,5 +1,5 @@
 class MaxPriorityQueue:
-    #Create a max property queue
+    #Create a max property queue ~ However this should be a Min Heap
     def __init__(self):
         self.arr = [None]
     
@@ -91,3 +91,5 @@ if __name__ == "__main__":
     heap = heapSort(arr) 
     print(heap)
     # print(heapSort(arr).size())
+
+
