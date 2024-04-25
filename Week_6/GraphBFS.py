@@ -1,4 +1,6 @@
-from buildAdjList import buildAdjList
+# from buildAdjList import buildAdjList, prettyPrint
+# from queue import Queue
+from buildAdjList import buildAdjList, prettyPrint
 from queue import Queue
 
 
@@ -33,8 +35,8 @@ if __name__ == '__main__':
 
     adj_list = buildAdjList(love_connections)
 
-    # prettyPrint(love_connections)
-    print(BFS(adj_list, "Hermia","Oberon"))
+    prettyPrint(love_connections)
+    # print(BFS(adj_list, "Hermia","Oberon"))
     
 
 
