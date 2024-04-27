@@ -1,5 +1,6 @@
 # from collections import Deque
 from __future__ import annotations
+import heapq
 
 
 '''
@@ -166,11 +167,11 @@ def find_shortest_path_wt(s: str, d: str, edges: list[list[str]], k: int) -> lis
         if neighbor == d:
           shortest_path = path + [neighbor]
           print("Negighbor",  neighbor, 'Path', path, "Cost", len(shortest_path) * k)
-          #This should be returning return shortest_path,len(shortest_path)*k
+          #Should this be returning return shortest_path,len(shortest_path)*k?
           return  shortest_path
         q.append((neighbor, path+[neighbor]))
         print("Test result", path)
-  #This should be returning return path, len(path) * k
+  #Shoudln't this be returning return path, len(path) * k?
   return -1
 
 '''
@@ -181,10 +182,10 @@ or None if not possible. Courses are numbered from 0 to n-1.
 '''
 def find_valid_course_ordering_if_exists(prerequisites: list[list[int]], n: int) -> list[int] | None:
 
-  graph = to_adjacency_list(prerequisites)
-  print(prerequisites, "<- Prereq")
-  print(n, "<- n")
-  print(graph)
+  # graph = to_adjacency_list(prerequisites)
+  # print(prerequisites, "<- Prereq")
+  # print(n, "<- n")
+  # print(graph)
   adj = [ [] for _ in range(n) ]
   indegree = [0] * n
 
@@ -235,4 +236,50 @@ If there is an edge (e1, e2, 3) in the input,
 you should assume there is an equivalent edge (e2, e1, 3) as well.
 '''
 def output_mst(edges: list[tuple[str, str, int]]) -> list[tuple[str, str, int]]:
-  pass
+  eds = []
+  adj = {}
+  visited = set()
+
+  for edge in edges:
+    if edge[0] not in adj:
+      adj[edge[0]]= []
+    if edge[1] not in adj:
+      adj[edge[1]] = []
+    adj[edge[0]].append((edge[1],edge[2]))
+    adj[edge[1]].append((edge[0],edge[2]))
+
+
+  mst = []
+  initial = next(iter(adj))
+  visited.add(initial)
+  min_heap = []
+  for neighbor, weight, in adj[initial]:
+    heapq.heappush(min_heap, (weight, initial, neighbor))
+  
+  #Now it's Prim's time
+  while min_heap and len(mst) < len(adj)-1:
+    weight,start,end = heapq.heappop(min_heap)
+    if end not in visited:
+      visited.add(end)
+      start,end = sorted([start,end])
+      mst.append((start,end,weight))
+
+      for next_end, next_weight in adj[end]:
+        if next_end not in visited:
+          heapq.heappush(min_heap, (next_weight, end, next_end))
+
+    
+
+  print("Final result", mst)
+
+
+
+  print("Check initial", initial)
+  print("Check Heap",min_heap)
+  print("Check visited",visited)
+  print("Is it len(mst) == len(adj) -1?", "Yes" if len(mst) == len(adj)-1 else 'No')
+  print("Adj lenght", len(adj) )
+  print("MST lenght", len(mst) )
+
+
+  return mst
