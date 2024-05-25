@@ -13,5 +13,5 @@ def fibo(n):
 
 if __name__ == '__main__':
 
-    print(fibo(8))
+    print(fibo(7))
 

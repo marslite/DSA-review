@@ -35,6 +35,7 @@ def unique_paths_top_down(m: int, n: int) -> int:
       return 0
 
     cache[(row,col)] = helper(row-1, col) + helper(row, col-1)
+    print("Cache","(",row,',',col,')', '=', "unique_td(",row-1,col,")", ",","+", "unique_td(",row-1,col,")", "=",(helper(row-1,col) + helper(row,col-1)))
     return cache[(row,col)]
   
   return helper(m,n)
@@ -42,18 +43,36 @@ def unique_paths_top_down(m: int, n: int) -> int:
 
 
 
-'''
+# '''
+# Question 2. Solve the above problem using Bottom Up Dynamic Programming
+# '''
+# def unique_paths_bottom_up(m: int, n: int) -> int:
+#   # cache = [ [1]*n for _ in range(m)  ]
+#   # print("Here's the cache",cache)
+#   # for row in range(1,m):
+#   #   for column in range(1,n):
+#   #     cache[row][column] = cache[row-1][column] + cache[row][column-1]
+  
+#   # print("vis the res", cache)
+#   # return cache[m-1][n-1]
+
+#   cache = [[1] *n for _ in range(m)]
+#   print(cache)
+#   #Runtime O(m*n)
+#   #Space O(n * m)
+#   for row in range(m-2, -1,-1):
+#     for column in range(n-2, -1,-1):
+#       cache[row][column] = cache[row+1][column] + cache[row][column+1]
+  
+#   print("Cache: ",cache)
+  
+#   # return cache[0][0]
+
+
+  '''
 Question 2. Solve the above problem using Bottom Up Dynamic Programming
 '''
 def unique_paths_bottom_up(m: int, n: int) -> int:
-  # cache = [ [1]*n for _ in range(m)  ]
-  # print("Here's the cache",cache)
-  # for row in range(1,m):
-  #   for column in range(1,n):
-  #     cache[row][column] = cache[row-1][column] + cache[row][column-1]
-  
-  # print("vis the res", cache)
-  # return cache[m-1][n-1]
 
   cache = [[1] *n for _ in range(m)]
   print(cache)
@@ -62,7 +81,83 @@ def unique_paths_bottom_up(m: int, n: int) -> int:
   for row in range(m-2, -1,-1):
     for column in range(n-2, -1,-1):
       cache[row][column] = cache[row+1][column] + cache[row][column+1]
+      print(cache)
   
   print("Cache: ",cache)
   
-  # return cache[0][0]
+  return cache[0][0]
+
+
+def top_down_fillf(n,memo={}):
+    if memo is None:
+      memo = {}
+
+    if n in memo:
+      return memo[n]
+    
+    if n == 0:
+      return 1
+    
+    if n ==1:
+      return 1
+    
+    memo[n] = top_down_fillf(n-1,memo) + top_down_fillf(n-2,memo)
+    print("fillf(",n,")", " =", "fillf(",n,"-","1)",top_down_fillf(n-1),"+", "fillf(",n,"-2 )", top_down_fillf(n-2), "=",top_down_fillf(n-1,memo) + top_down_fillf(n-2,memo) )
+
+    return memo[n]
+
+def bottom_up_fill(n):
+  if n == 0:
+    return 1
+  if n == 1:
+    return 1
+  if n == 2:
+    return 1
+  
+  dp = [0] * (n+1)
+  dp[0] = 1
+  dp[1] = 1
+  dp[2] = 1
+  for i in range(3,n+1):
+    dp[i] = dp[i-1] + dp[i-3]
+  return dp[n]
+
+
+def bottom_up_subs(n):
+    if n == 0:
+      return 1
+    if n == 1:
+      return 2
+    
+    dp = [0] * (n+1)
+    dp[0] = 1
+    dp[1] = 1
+    for i in range(2,n+1):
+      dp[i] = dp[i-1] + dp[i-2]
+    print(dp)
+    return dp[n]
+
+def top_down_funs(n,m,memo=None):
+  if memo is None:
+    memo = {}
+  
+  if n in memo:
+    return memo[n]
+  
+  if n==0:
+    return 1
+  
+  memo[n] = m * top_down_funs(n-1,m,memo)
+  print("memo[",n,']','=',' m', '*', " count_f(",n-1, m, memo,")", "==", memo[n])
+  return memo[n]
+
+
+if __name__ == "__main__":
+  
+#   print(unique_paths_top_down(6,6))
+    # print(top_down_fillf(6, memo={}))
+    # print(bottom_up_fill(3))
+
+
+    # print(bottom_up_subs(4)) #Output is 8
+    print(top_down_funs(3,3))
