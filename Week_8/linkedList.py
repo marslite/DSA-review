@@ -40,6 +40,19 @@ class LinkedList:
     
     def size(self):
         return self._size
+    
+
+    def reverseLinkedList(self):
+        cur = self.head.next
+        prev = None
+        while(cur):
+            Next = cur.next
+            cur.next = prev
+            prev = cur
+            cur = Next
+        self.head.next = prev
+
+
 
 
 if __name__ == '__main__':
@@ -52,6 +65,15 @@ if __name__ == '__main__':
         linkl.insertFront(i)
     
     print(linkl)
+
+    node = LinkedList()
+    for i in range(1,6):
+        node.insertFront(i)
+    
+    print(node)
+    node.reverseLinkedList()
+    print(node)
+
 
 
     
