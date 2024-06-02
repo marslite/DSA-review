@@ -28,14 +28,52 @@ class Deque:
         self.size += 1
 
     def addLast(self,val):
-        pass
+        newNode = ListNode(val)
+        prev = self.tail.prev
+        self.tail.prev.next = newNode
+        self.tail.prev = newNode
+        newNode.next = self.tail
+        newNode.prev = prev
 
-    def removeFirst(self,val):
-        pass
+
+    def removeFirst(self):
+        if self.isEmtpy():
+            print("Cannot remove from empy list")
+            return
+        
+        self.head.next.prev = self.head
+        self.head.next = self.head.next.next
+        self.size -=1 
+
+    def removeLast(self):
+        if self.isEmtpy():
+            print("Cannot remove from an empty list")
+            return
+        
+        # prev = self.tail.prev.prev.next
+        self.tail.prev.prev.next = self.tail
+        self.tail.prev =  self.tail.prev.prev
+        self.size -= 1
+
+
 
     def asList(self):
-        pass
+        lst = []
+        cur = self.head.next
+        while(cur.next):
+            lst.append(cur.val)
+            cur = cur.next
+        return lst
 
 
 if __name__ == "__main__":
     print("Working with Deque")
+    dq = Deque()
+    for i in range(10):
+        dq.addFirst(i)
+    
+    print(dq.asList())
+    dq.removeFirst()
+    print(dq.asList())
+    dq.removeLast()
+    print(dq.asList())
