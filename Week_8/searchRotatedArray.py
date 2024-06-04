@@ -44,6 +44,8 @@ def searchRoratedArray(arr,target):
 def searchRoratedArrayWithDuplicates(arr,target):
     lo = 0
     hi = len(arr) -1
+    #Runtime O(N)
+    #Space O(1)
     while(lo <= hi):
         mid = (lo + hi) //2
         if arr[mid] == target:
