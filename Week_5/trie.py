@@ -26,12 +26,29 @@ class Trie:
 
     def search(self, word:str) -> bool:
         'Returns if the word we are looking for is our Trie'
-        pass
+        curNode = self.root
+        for c in word:
+            if c in curNode.childredn:
+                curNode = curNode.childredn[c]
+            else:
+                return False
+        
+        return curNode.isWord
+
 
     
     def startsWith(self, prefix: str) -> bool:
         'Returns if there is any word in the trie that starts with the given prefix'
-        pass
+        curNode = self.root
+        condition = False
+        for c in prefix:
+            if c in curNode.childredn:
+                curNode = curNode.childredn[c]
+                condition = True
+            else:
+                return False
+        
+        return  condition
 
 
 if __name__ == "__main__":
@@ -39,6 +56,6 @@ if __name__ == "__main__":
     test1 = Trie()
 
 
-    test1.children['a'] = Node()
-    print(test1)
+    # test1.children['a'] = Node()
+    # print(test1)
 
