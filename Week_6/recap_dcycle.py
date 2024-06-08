@@ -5,6 +5,7 @@ from buildAdjList import buildAdjList,prettyPrint
 
 def detectCycle(adj_list):
     visited = set()
+    #Runtime O(V+E)
     for key in adj_list.keys():
         if key not in visited:
             if DFS(key, set(),visited, adj_list):
@@ -21,6 +22,9 @@ def DFS(cur_node, cur_path,visited, adj_list):
     
     cur_path.add(cur_node)
     visited.add(cur_node)
+    #Runtime O(N^2)
+    #Runtime O(E+V)
+    #Space O(N)
     for nbr in adj_list[cur_node]:
         if cur_node == nbr:
             continue
